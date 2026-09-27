@@ -606,6 +606,9 @@ h3 {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
   position: relative;
   overflow: hidden;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
 }
 .configurator-wrapper::after {
   content: "";
@@ -622,6 +625,17 @@ h3 {
   grid-template-columns: 1.4fr 1fr;
   gap: 40px;
   align-items: center;
+  min-width: 0;
+  width: 100%;
+}
+.configurator-grid > * {
+  min-width: 0;
+  max-width: 100%;
+}
+.config-controls {
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
 }
 
 /* Mobile Live Price Banner */
@@ -631,6 +645,10 @@ h3 {
 
 .slider-group {
   margin-bottom: 24px;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .slider-header {
   display: flex;
@@ -640,6 +658,8 @@ h3 {
   font-size: 14px;
   font-weight: 600;
   color: #e2e8f0;
+  min-width: 0;
+  gap: 8px;
 }
 .slider-value-badge {
   font-family: var(--font-mono);
@@ -650,6 +670,8 @@ h3 {
   padding: 3px 10px;
   border-radius: 6px;
   letter-spacing: -0.01em;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 .custom-range {
   width: 100%;
@@ -718,13 +740,22 @@ h3 {
   color: var(--text-dim);
   margin-top: 6px;
   font-family: var(--font-mono);
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+.slider-scale span {
+  flex-shrink: 0;
 }
 
 .os-selector-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 10px;
   margin-top: 10px;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 .os-btn {
   background: #151d30;
@@ -737,6 +768,11 @@ h3 {
   cursor: pointer;
   transition: var(--transition);
   text-align: center;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .os-btn:hover,
 .os-btn.active {
@@ -754,6 +790,10 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: 18px;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 .config-summary-title {
   font-size: 13px;
@@ -1013,20 +1053,33 @@ textarea {
     grid-template-columns: repeat(2, 1fr);
   }
   .configurator-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
   }
   .mobile-price-banner {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: stretch;
     background: rgba(14, 22, 41, 0.95);
     border: 1px solid rgba(56, 189, 248, 0.35);
     border-radius: var(--radius);
-    padding: 14px 18px;
-    margin-bottom: 28px;
-    gap: 12px;
+    padding: 14px 16px;
+    margin-bottom: 24px;
+    gap: 10px;
     position: static;
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .mobile-price-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    gap: 8px;
   }
   .mobile-price-label {
     display: block;
@@ -1042,8 +1095,10 @@ textarea {
     color: #fff;
     display: flex;
     align-items: baseline;
+    flex-wrap: wrap;
     gap: 6px;
     line-height: 1.1;
+    min-width: 0;
   }
   .mobile-price-amount small {
     font-size: 13px;
@@ -1069,6 +1124,9 @@ textarea {
 }
 
 @media (max-width: 768px) {
+  .container {
+    width: calc(100% - 24px);
+  }
   .nav-links, .nav-actions .btn {
     display: none;
   }
@@ -1108,19 +1166,27 @@ textarea {
     grid-template-columns: 1fr;
   }
   .configurator-wrapper {
-    padding: 24px 18px;
+    padding: 20px 16px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
   }
   .os-selector-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
+    width: 100%;
+    box-sizing: border-box;
   }
   .os-btn {
-    padding: 12px 10px;
-    font-size: 13px;
-    min-height: 46px;
+    padding: 10px 8px;
+    font-size: 12px;
+    min-height: 42px;
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: 0;
+    box-sizing: border-box;
   }
   .config-summary-card {
     padding: 24px 18px;
@@ -1128,23 +1194,31 @@ textarea {
 }
 
 @media (max-width: 480px) {
+  .container {
+    width: calc(100% - 20px);
+  }
   .configurator-wrapper {
     padding: 16px 12px;
     border-radius: var(--radius);
   }
   .mobile-price-banner {
-    padding: 12px 14px;
-    gap: 10px;
+    padding: 12px;
+    gap: 8px;
+    margin-bottom: 20px;
   }
   .mobile-price-amount {
-    font-size: 19px;
+    font-size: 20px;
+    gap: 4px;
   }
   .slider-header {
     font-size: 13px;
+    gap: 6px;
+    min-width: 0;
   }
   .slider-value-badge {
     font-size: 12px;
     padding: 2px 7px;
+    flex-shrink: 0;
   }
   .slider-scale {
     font-size: 10px;
@@ -1153,7 +1227,7 @@ textarea {
     padding: 20px 14px;
   }
   .config-summary-price {
-    font-size: 34px;
+    font-size: 32px;
   }
   .config-spec-pills {
     gap: 6px;
