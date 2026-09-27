@@ -133,18 +133,19 @@ a {
   color: #fff;
 }
 .brand-logo-img {
-  height: 38px;
+  height: 32px;
   width: auto;
-  max-width: 175px;
+  max-width: 190px;
   object-fit: contain;
   display: block;
 }
 .footer-logo-img {
-  height: 44px;
+  height: 40px;
   width: auto;
-  max-width: 200px;
+  max-width: 240px;
   object-fit: contain;
   display: block;
+  margin-bottom: 14px;
 }
 .brand-icon {
   width: 34px;
@@ -652,15 +653,36 @@ h3 {
 }
 .custom-range {
   width: 100%;
-  height: 8px;
-  border-radius: 99px;
-  background: #1c273e;
+  height: 28px;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 4px 0 0 !important;
   outline: none;
   -webkit-appearance: none;
+  appearance: none;
   cursor: pointer;
   touch-action: pan-y;
-  margin: 6px 0;
   display: block;
+  box-shadow: none !important;
+}
+.custom-range:focus {
+  outline: none;
+  box-shadow: none !important;
+}
+.custom-range::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  background: #1c273e;
+  border-radius: 99px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.custom-range::-moz-range-track {
+  width: 100%;
+  height: 8px;
+  background: #1c273e;
+  border-radius: 99px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 .custom-range::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -670,8 +692,9 @@ h3 {
   border-radius: 50%;
   background: var(--accent);
   cursor: pointer;
-  box-shadow: 0 0 14px rgba(56, 189, 248, 0.6);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.7);
   border: 2px solid #fff;
+  margin-top: -8px; /* (8px track - 24px thumb) / 2 = -8px */
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .custom-range::-moz-range-thumb {
@@ -680,13 +703,13 @@ h3 {
   border-radius: 50%;
   background: var(--accent);
   cursor: pointer;
-  box-shadow: 0 0 14px rgba(56, 189, 248, 0.6);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.7);
   border: 2px solid #fff;
 }
 .custom-range::-webkit-slider-thumb:hover,
 .custom-range:active::-webkit-slider-thumb {
-  transform: scale(1.2);
-  box-shadow: 0 0 22px rgba(56, 189, 248, 0.9);
+  transform: scale(1.15);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.95);
 }
 .slider-scale {
   display: flex;
@@ -865,7 +888,7 @@ label {
   font-weight: 600;
   color: #cbd5e1;
 }
-input, textarea, select {
+input:not([type="range"]), textarea, select {
   width: 100%;
   padding: 12px 16px;
   border-radius: 10px;
@@ -876,7 +899,7 @@ input, textarea, select {
   font-size: 14px;
   transition: var(--transition);
 }
-input:focus, textarea:focus, select:focus {
+input:not([type="range"]):focus, textarea:focus, select:focus {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
@@ -1000,14 +1023,10 @@ textarea {
     border: 1px solid rgba(56, 189, 248, 0.35);
     border-radius: var(--radius);
     padding: 14px 18px;
-    margin-bottom: 24px;
+    margin-bottom: 28px;
     gap: 12px;
-    position: sticky;
-    top: 80px;
-    z-index: 10;
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    position: static;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
   }
   .mobile-price-label {
     display: block;
