@@ -73,6 +73,9 @@ function initConfigurator() {
   const diskVal = document.getElementById('cfg-disk-val');
   const priceMo = document.getElementById('cfg-price-mo');
   const priceHr = document.getElementById('cfg-price-hr');
+  const priceMoMobile = document.getElementById('cfg-price-mo-mobile');
+  const priceHrMobile = document.getElementById('cfg-price-hr-mobile');
+  const deployBtnMobile = document.getElementById('cfg-deploy-btn-mobile');
   const pillCpu = document.getElementById('pill-cpu');
   const pillRam = document.getElementById('pill-ram');
   const pillDisk = document.getElementById('pill-disk');
@@ -116,18 +119,20 @@ function initConfigurator() {
 
     if (priceMo) priceMo.textContent = `₹${monthly.toLocaleString('en-IN')}`;
     if (priceHr) priceHr.textContent = `₹${hourly}/hr`;
+    if (priceMoMobile) priceMoMobile.textContent = `₹${monthly.toLocaleString('en-IN')}`;
+    if (priceHrMobile) priceHrMobile.textContent = `(₹${hourly}/hr)`;
 
-    if (deployBtn) {
-      const query = new URLSearchParams({
-        service: 'Virtual Machine Service',
-        cpu: `${cpu} vCPU`,
-        ram: `${ram} GB`,
-        disk: `${disk} GB NVMe`,
-        os: currentOs,
-        price: `₹${monthly}/mo`
-      });
-      deployBtn.href = `contact.html?${query.toString()}`;
-    }
+    const query = new URLSearchParams({
+      service: 'Virtual Machine Service',
+      cpu: `${cpu} vCPU`,
+      ram: `${ram} GB`,
+      disk: `${disk} GB NVMe`,
+      os: currentOs,
+      price: `₹${monthly}/mo`
+    });
+
+    if (deployBtn) deployBtn.href = `contact.html?${query.toString()}`;
+    if (deployBtnMobile) deployBtnMobile.href = `contact.html?${query.toString()}`;
   }
 
   cpuSlider.addEventListener('input', updateConfig);

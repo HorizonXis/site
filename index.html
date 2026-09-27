@@ -134,13 +134,33 @@
         <div class="configurator-wrapper">
           <div class="configurator-grid">
             <div class="config-controls">
+              <!-- Mobile Live Price Banner (Visible on mobile/tablet) -->
+              <div class="mobile-price-banner">
+                <div class="mobile-price-info">
+                  <span class="mobile-price-label">Live Estimate</span>
+                  <div class="mobile-price-amount">
+                    <span id="cfg-price-mo-mobile">₹1,140</span><small>/mo</small>
+                    <span class="mobile-price-hourly" id="cfg-price-hr-mobile">(₹1.58/hr)</span>
+                  </div>
+                </div>
+                <a class="btn btn-primary btn-sm" href="contact.html" id="cfg-deploy-btn-mobile">
+                  Deploy
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+              </div>
+
               <!-- vCPU Slider -->
               <div class="slider-group">
                 <div class="slider-header">
                   <span>Compute Cores</span>
                   <span class="slider-value-badge" id="cfg-cpu-val">2 vCPU</span>
                 </div>
-                <input type="range" class="custom-range" id="cfg-cpu" min="1" max="16" step="1" value="2">
+                <input type="range" class="custom-range" id="cfg-cpu" min="1" max="16" step="1" value="2" aria-label="Compute Cores">
+                <div class="slider-scale">
+                  <span>1 vCPU</span>
+                  <span>8 vCPU</span>
+                  <span>16 vCPU</span>
+                </div>
               </div>
 
               <!-- RAM Slider -->
@@ -149,7 +169,12 @@
                   <span>System Memory</span>
                   <span class="slider-value-badge" id="cfg-ram-val">4 GB RAM</span>
                 </div>
-                <input type="range" class="custom-range" id="cfg-ram" min="1" max="32" step="1" value="4">
+                <input type="range" class="custom-range" id="cfg-ram" min="1" max="32" step="1" value="4" aria-label="System Memory">
+                <div class="slider-scale">
+                  <span>1 GB</span>
+                  <span>16 GB</span>
+                  <span>32 GB</span>
+                </div>
               </div>
 
               <!-- NVMe Disk Slider -->
@@ -158,7 +183,12 @@
                   <span>NVMe SSD Storage</span>
                   <span class="slider-value-badge" id="cfg-disk-val">50 GB NVMe</span>
                 </div>
-                <input type="range" class="custom-range" id="cfg-disk" min="20" max="500" step="10" value="50">
+                <input type="range" class="custom-range" id="cfg-disk" min="20" max="500" step="10" value="50" aria-label="NVMe SSD Storage">
+                <div class="slider-scale">
+                  <span>20 GB</span>
+                  <span>250 GB</span>
+                  <span>500 GB</span>
+                </div>
               </div>
 
               <!-- OS Distribution Selection -->

@@ -622,14 +622,20 @@ h3 {
   gap: 40px;
   align-items: center;
 }
+
+/* Mobile Live Price Banner */
+.mobile-price-banner {
+  display: none;
+}
+
 .slider-group {
-  margin-bottom: 26px;
+  margin-bottom: 24px;
 }
 .slider-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   font-size: 14px;
   font-weight: 600;
   color: #e2e8f0;
@@ -638,34 +644,57 @@ h3 {
   font-family: var(--font-mono);
   font-size: 14px;
   color: var(--accent);
-  background: rgba(56, 189, 248, 0.1);
-  border: 1px solid rgba(56, 189, 248, 0.2);
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
   padding: 3px 10px;
   border-radius: 6px;
+  letter-spacing: -0.01em;
 }
 .custom-range {
   width: 100%;
-  height: 6px;
+  height: 8px;
   border-radius: 99px;
   background: #1c273e;
   outline: none;
   -webkit-appearance: none;
   cursor: pointer;
+  touch-action: pan-y;
+  margin: 6px 0;
+  display: block;
 }
 .custom-range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   background: var(--accent);
   cursor: pointer;
-  box-shadow: 0 0 12px var(--accent);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.6);
   border: 2px solid #fff;
-  transition: transform 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
-.custom-range::-webkit-slider-thumb:hover {
-  transform: scale(1.15);
+.custom-range::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.6);
+  border: 2px solid #fff;
+}
+.custom-range::-webkit-slider-thumb:hover,
+.custom-range:active::-webkit-slider-thumb {
+  transform: scale(1.2);
+  box-shadow: 0 0 22px rgba(56, 189, 248, 0.9);
+}
+.slider-scale {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 6px;
+  font-family: var(--font-mono);
 }
 
 .os-selector-grid {
@@ -963,6 +992,51 @@ textarea {
   .configurator-grid {
     grid-template-columns: 1fr;
   }
+  .mobile-price-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(14, 22, 41, 0.95);
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin-bottom: 24px;
+    gap: 12px;
+    position: sticky;
+    top: 80px;
+    z-index: 10;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+  .mobile-price-label {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+  }
+  .mobile-price-amount {
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    line-height: 1.1;
+  }
+  .mobile-price-amount small {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+  }
+  .mobile-price-hourly {
+    font-size: 12px;
+    font-family: var(--font-mono);
+    color: var(--accent);
+    font-weight: 600;
+  }
   .metrics-strip {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1015,6 +1089,58 @@ textarea {
     grid-template-columns: 1fr;
   }
   .configurator-wrapper {
-    padding: 24px;
+    padding: 24px 18px;
+  }
+  .os-selector-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .os-btn {
+    padding: 12px 10px;
+    font-size: 13px;
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .config-summary-card {
+    padding: 24px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .configurator-wrapper {
+    padding: 16px 12px;
+    border-radius: var(--radius);
+  }
+  .mobile-price-banner {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+  .mobile-price-amount {
+    font-size: 19px;
+  }
+  .slider-header {
+    font-size: 13px;
+  }
+  .slider-value-badge {
+    font-size: 12px;
+    padding: 2px 7px;
+  }
+  .slider-scale {
+    font-size: 10px;
+  }
+  .config-summary-card {
+    padding: 20px 14px;
+  }
+  .config-summary-price {
+    font-size: 34px;
+  }
+  .config-spec-pills {
+    gap: 6px;
+  }
+  .config-pill {
+    font-size: 11px;
+    padding: 3px 7px;
   }
 }
