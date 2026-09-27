@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cloud Services | Managed VMs, Persistent Storage & WordPress in Delhi NCR</title>
+  <meta name="description" content="Managed cloud services built for performance in Delhi NCR. Deploy Linux virtual machines, persistent NVMe storage, and tenant-isolated WordPress hosting.">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Top System Status Strip -->
+  <div class="status-bar">
+    <div class="container status-bar-inner">
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        <span>All Services Operational — Region: Delhi NCR (NCR1)</span>
+      </div>
+      <div>Managed Cloud Services Engineered for Performance VE</div>
+    </div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo-dark-theme.png" alt="HorizonXis" class="brand-logo-img">
+      </a>
+
+      <nav class="nav-links">
+        <a href="compute.html" class="nav-link">Compute <span class="nav-badge">VM</span></a>
+        <a href="storage.html" class="nav-link">Storage</a>
+        <a href="hosting.html" class="nav-link">WordPress Hosting</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="about.html" class="nav-link">About Services</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="#configurator">Deploy Service</a>
+        <button class="mobile-toggle" aria-label="Open Navigation Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="4" x2="20" y1="12" y2="12"></line>
+            <line x1="4" x2="20" y1="6" y2="6"></line>
+            <line x1="4" x2="20" y1="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer">
+    <div class="mobile-drawer-header">
+      <a class="brand" href="index.html">
+        <img src="assets/logo-dark-theme.png" alt="HorizonXis" class="brand-logo-img">
+      </a>
+      <button class="mobile-drawer-close" aria-label="Close menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-drawer-links">
+      <a href="compute.html">Virtual Machine Services</a>
+      <a href="storage.html">Persistent Storage Services</a>
+      <a href="hosting.html">Managed WordPress Hosting</a>
+      <a href="pricing.html">Pricing Overview</a>
+      <a href="about.html">About Services</a>
+      <a href="contact.html">Deploy / Contact</a>
+    </div>
+    <div style="margin-top:auto;">
+      <a class="btn btn-primary" style="width:100%;" href="contact.html">Deploy Service Now</a>
+    </div>
+  </div>
+  <div class="drawer-backdrop"></div>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="eyebrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+          Managed Cloud Services in Delhi NCR
+        </div>
+        <h1>Managed Cloud Services, <span class="gradient-text">Built for Performance in Delhi NCR.</span></h1>
+        <p class="hero-desc">Deploy high-performance Linux virtual machines, persistent NVMe storage, and tenant-isolated WordPress hosting. Hosted in Delhi NCR with dedicated resources, zero complexity, and predictable monthly pricing.</p>
+        
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#configurator">
+            Configure & Deploy
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+          <a class="btn btn-secondary btn-lg" href="#services">Explore Services</a>
+        </div>
+
+        <!-- Metrics Strip -->
+        <div class="metrics-strip">
+          <div class="metric-item">
+            <div class="metric-val">99.95%</div>
+            <div class="metric-label">Guaranteed Service SLA</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-val">&lt; 5ms</div>
+            <div class="metric-label">Delhi NCR Domestic Latency</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-val">Enterprise Cloud Architecture</div>
+            <div class="metric-label">KVM Hardware Virtualization</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-val">₹0</div>
+            <div class="metric-label">Hidden Egress Charges</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Configurator Section -->
+    <section class="section" id="configurator">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow eyebrow-emerald">Instant Estimator</div>
+          <h2>Configure Your Virtual Machine Service</h2>
+          <p class="section-sub">Customize your compute specs in real-time. Powered by Enterprise KVM with dedicated vCPU/RAM and transparent INR pricing.</p>
+        </div>
+
+        <div class="configurator-wrapper">
+          <div class="configurator-grid">
+            <div class="config-controls">
+              <!-- vCPU Slider -->
+              <div class="slider-group">
+                <div class="slider-header">
+                  <span>Compute Cores</span>
+                  <span class="slider-value-badge" id="cfg-cpu-val">2 vCPU</span>
+                </div>
+                <input type="range" class="custom-range" id="cfg-cpu" min="1" max="16" step="1" value="2">
+              </div>
+
+              <!-- RAM Slider -->
+              <div class="slider-group">
+                <div class="slider-header">
+                  <span>System Memory</span>
+                  <span class="slider-value-badge" id="cfg-ram-val">4 GB RAM</span>
+                </div>
+                <input type="range" class="custom-range" id="cfg-ram" min="1" max="32" step="1" value="4">
+              </div>
+
+              <!-- NVMe Disk Slider -->
+              <div class="slider-group">
+                <div class="slider-header">
+                  <span>NVMe SSD Storage</span>
+                  <span class="slider-value-badge" id="cfg-disk-val">50 GB NVMe</span>
+                </div>
+                <input type="range" class="custom-range" id="cfg-disk" min="20" max="500" step="10" value="50">
+              </div>
+
+              <!-- OS Distribution Selection -->
+              <div class="slider-group" style="margin-bottom:0;">
+                <div class="slider-header">
+                  <span>Select Operating System Template</span>
+                </div>
+                <div class="os-selector-grid">
+                  <button type="button" class="os-btn active" data-os="Ubuntu 24.04 LTS">Ubuntu 24.04</button>
+                  <button type="button" class="os-btn" data-os="Debian 12 Bookworm">Debian 12</button>
+                  <button type="button" class="os-btn" data-os="Rocky Linux 9">Rocky Linux</button>
+                  <button type="button" class="os-btn" data-os="AlmaLinux 9">AlmaLinux</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Price & Summary Card -->
+            <div class="config-summary-card">
+              <div class="config-summary-title">Service Configuration Summary</div>
+              <div class="config-summary-price">
+                <span id="cfg-price-mo">₹1,140</span>
+                <small>/month</small>
+              </div>
+              <div class="price-hourly" id="cfg-price-hr">₹1.58/hr</div>
+
+              <div class="config-spec-pills">
+                <span class="config-pill" id="pill-cpu">2 vCPU</span>
+                <span class="config-pill" id="pill-ram">4 GB RAM</span>
+                <span class="config-pill" id="pill-disk">50 GB NVMe</span>
+                <span class="config-pill" id="pill-os">Ubuntu 24.04 LTS</span>
+              </div>
+
+              <a id="cfg-deploy-btn" class="btn btn-primary btn-lg" style="margin-top:12px;" href="contact.html">
+                Deploy This Configuration
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </a>
+              <span style="font-size:12px;color:var(--text-dim);">Dedicated IPv4, full root access & automated snapshot support included.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Services Section -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Three Focused Services</div>
+          <h2>Managed Cloud Services in Delhi NCR</h2>
+          <p class="section-sub">Everything managed, monitored, and delivered with enterprise enterprise stability.</p>
+        </div>
+
+        <div class="grid-3">
+          <!-- Compute Card -->
+          <div class="card">
+            <div class="card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="16" height="16" x="4" y="4" rx="2"></rect>
+                <rect width="6" height="6" x="9" y="9" rx="1"></rect>
+                <path d="M15 2v2"></path>
+                <path d="M15 20v2"></path>
+                <path d="M2 15h2"></path>
+                <path d="M2 9h2"></path>
+                <path d="M20 15h2"></path>
+                <path d="M20 9h2"></path>
+                <path d="M9 2v2"></path>
+                <path d="M9 20v2"></path>
+              </svg>
+            </div>
+            <h3>Virtual Machine Services</h3>
+            <p>High-frequency Linux virtual machines engineered for performance KVM with dedicated memory, NVMe storage, and root SSH access.</p>
+            <ul class="feature-list">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Enterprise KVM hardware virtualization
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Dedicated Static IPv4 included
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Ubuntu, Debian, AlmaLinux & Rocky
+              </li>
+            </ul>
+            <div class="card-footer">
+              <span style="font-size:14px;color:var(--text);font-weight:700;">From ₹399<small style="color:var(--text-muted);font-weight:400;">/mo</small></span>
+              <a class="btn btn-secondary btn-sm" href="compute.html">View VM Specs →</a>
+            </div>
+          </div>
+
+          <!-- Storage Card -->
+          <div class="card">
+            <div class="card-icon emerald">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" x2="2" y1="12" y2="12"></line>
+                <path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
+                <line x1="6" x2="6.01" y1="16" y2="16"></line>
+                <line x1="10" x2="10.01" y1="16" y2="16"></line>
+              </svg>
+            </div>
+            <h3>Persistent Storage Services</h3>
+            <p>High-throughput NVMe block storage volumes. Attach extra capacity seamlessly to your virtual machines via enterprise NVMe storage pools.</p>
+            <ul class="feature-list">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Enterprise NVMe storage pools
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Dynamic online volume resizing
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Automated snapshot backups
+              </li>
+            </ul>
+            <div class="card-footer">
+              <span style="font-size:14px;color:var(--text);font-weight:700;">From ₹2<small style="color:var(--text-muted);font-weight:400;">/GB/mo</small></span>
+              <a class="btn btn-secondary btn-sm" href="storage.html">View Storage Specs →</a>
+            </div>
+          </div>
+
+          <!-- Hosting Card -->
+          <div class="card">
+            <div class="card-icon violet">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" x2="22" y1="12" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </div>
+            <h3>WordPress Hosting Services</h3>
+            <p>High-speed managed WordPress hosting running on dedicated tenant-isolated containers with free SSL and Redis caching.</p>
+            <ul class="feature-list">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Dedicated tenant container isolation
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Free automated Let's Encrypt SSL
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Redis cache + daily backups
+              </li>
+            </ul>
+            <div class="card-footer">
+              <span style="font-size:14px;color:var(--text);font-weight:700;">From ₹149<small style="color:var(--text-muted);font-weight:400;">/mo</small></span>
+              <a class="btn btn-secondary btn-sm" href="hosting.html">View WordPress Specs →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Platform Highlights -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Enterprise Reliability</div>
+          <h2>Engineered for High Uptime & Security</h2>
+          <p class="section-sub">Delivering managed services with dedicated engineering oversight in Delhi NCR.</p>
+        </div>
+
+        <div class="grid-4">
+          <div class="card">
+            <h3>Enterprise KVM</h3>
+            <p>Guaranteed CPU and RAM resource isolation without the unpredictable performance hits of shared hosts.</p>
+          </div>
+          <div class="card">
+            <h3>Tenant Isolation</h3>
+            <p>Every WordPress instance runs in its own isolated container with dedicated MariaDB and Redis caching.</p>
+          </div>
+          <div class="card">
+            <h3>Delhi NCR Hub</h3>
+            <p>Hosted in Delhi NCR to provide ultra-low local ping times across Northern India and fast pan-India routing.</p>
+          </div>
+          <div class="card">
+            <h3>Predictable Billing</h3>
+            <p>Simple, flat monthly pricing in INR. No unexpected egress penalties or surprise hidden items.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Frequently Asked Questions</div>
+          <h2>Got Questions? We Have Answers.</h2>
+          <p class="section-sub">Everything you need to know about our cloud services, virtualization, and deployment.</p>
+        </div>
+
+        <div class="faq-grid">
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Where are the services hosted?</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              All services are hosted in Delhi NCR (Region: NCR1), offering single-digit millisecond latency across Delhi, Gurgaon, Noida, and low-latency transit across India.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>How are the virtual machines virtualized and isolated?</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              We utilize Enterprise Cloud Architecture with native KVM hardware virtualization. This guarantees that your assigned vCPU, memory, and NVMe disk IOPS are strictly reserved for your virtual machine without noisy-neighbor interference.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>How is WordPress hosting isolated for each tenant?</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              Rather than traditional shared hosting where hundreds of sites share one PHP/Apache process, each WordPress customer gets an isolated dedicated cloud container with dedicated RAM, dedicated MariaDB instance, and Redis object cache.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>What payment methods and currencies are supported?</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              All pricing is transparently listed in Indian Rupees (₹ INR). We support UPI, domestic credit/debit cards, NetBanking, and corporate GST invoices.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Global CTA Banner -->
+    <section class="section" style="padding-bottom:100px;">
+      <div class="container">
+        <div class="cta-banner">
+          <div>
+            <div class="eyebrow eyebrow-emerald">Get Started Today</div>
+            <h2>Ready to Deploy Cloud Services in Delhi NCR?</h2>
+            <p class="section-sub">Choose your configuration and launch your virtual machine or WordPress service now.</p>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <a class="btn btn-primary btn-lg" href="contact.html">Deploy Now</a>
+            <a class="btn btn-secondary btn-lg" href="pricing.html">View All Pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <img src="assets/logo-dark-theme.png" alt="HorizonXis" class="footer-logo-img">
+          </a>
+          <p>Managed cloud services in Delhi NCR. Virtual machine compute services, persistent NVMe storage, and tenant-isolated managed WordPress hosting.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="compute.html">Virtual Machine Services</a></li>
+            <li><a href="storage.html">Persistent Storage Services</a></li>
+            <li><a href="hosting.html">WordPress Hosting</a></li>
+            <li><a href="pricing.html">Pricing Overview</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Services</a></li>
+            <li><a href="contact.html">Service Request Gateway</a></li>
+            <li><a href="pricing.html#faq">Billing FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Region</h4>
+          <ul class="footer-links">
+            <li><span style="color:#fff;">🇮🇳 Delhi NCR (NCR1)</span></li>
+            <li><span style="color:var(--emerald);">● Services 100% Operational</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 HorizonXis. All rights reserved.</div>
+        <div>Managed cloud services, hosted in Delhi NCR, India.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
