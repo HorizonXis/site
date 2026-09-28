@@ -59,7 +59,7 @@ function initMobileDrawer() {
   window.closeMobileDrawer = closeDrawer;
 }
 
-// 3. Interactive Cloud Configurator (Enterprise VMs)
+// 3. Interactive Cloud Configurator (Virtual Machines)
 function initConfigurator() {
   const cpuSlider = document.getElementById('cfg-cpu');
   const ramSlider = document.getElementById('cfg-ram');
@@ -173,7 +173,7 @@ function initFaqAccordion() {
   });
 }
 
-// 5. Deployment Gateway & Form Handler (contact.html)
+// 5. Service Request Gateway & Form Handler (contact.html)
 function initDeploymentForm() {
   const form = document.querySelector("#deployment-form");
   const copyBtn = document.querySelector("#copy-spec-btn");
@@ -237,7 +237,7 @@ function initDeploymentForm() {
 
       const subject = encodeURIComponent(`Cloud Service Request: ${selectedService} - ${name}`);
       const body = encodeURIComponent(
-        `SERVICE DEPLOYMENT REQUEST\n` +
+        `SERVICE SPECIFICATION REQUEST\n` +
         `----------------------------------------\n` +
         `Name: ${name}\n` +
         `Email: ${email}\n` +
