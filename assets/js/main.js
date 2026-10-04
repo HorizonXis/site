@@ -110,8 +110,8 @@ function initConfigurator() {
   });
 
   function calculatePrice(cpu, ram, disk) {
-    // Formula: vCPU: ₹90.00/core, RAM: ₹75.00/GB, NVMe: ₹5.00/GB
-    return (cpu * 90) + (ram * 75) + (disk * 5);
+    // Formula: vCPU: ₹250.00/core, RAM: ₹75.00/GB, NVMe: ₹5.00/GB
+    return (cpu * 250) + (ram * 75) + (disk * 5);
   }
 
   function updateConfig() {
