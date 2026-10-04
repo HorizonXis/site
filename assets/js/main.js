@@ -72,16 +72,17 @@ function initConfigurator() {
   const ramVal = document.getElementById('cfg-ram-val');
   const diskVal = document.getElementById('cfg-disk-val');
   const priceMo = document.getElementById('cfg-price-mo');
-  const priceHr = document.getElementById('cfg-price-hr');
   const priceMoMobile = document.getElementById('cfg-price-mo-mobile');
-  const priceHrMobile = document.getElementById('cfg-price-hr-mobile');
   const deployBtnMobile = document.getElementById('cfg-deploy-btn-mobile');
   const pillCpu = document.getElementById('pill-cpu');
   const pillRam = document.getElementById('pill-ram');
   const pillDisk = document.getElementById('pill-disk');
   const pillOs = document.getElementById('pill-os');
+  const pillIp = document.getElementById('pill-ip');
 
   let currentOs = 'Ubuntu 24.04 LTS';
+  let currentIpType = 'Basic IP';
+  let currentIpCost = 150;
 
   // OS Buttons
   const osButtons = document.querySelectorAll('.os-btn');
@@ -95,10 +96,22 @@ function initConfigurator() {
     });
   });
 
+  // IP Buttons
+  const ipButtons = document.querySelectorAll('.ip-btn');
+  ipButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      ipButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentIpType = btn.getAttribute('data-ip-type') || 'Basic';
+      currentIpCost = parseInt(btn.getAttribute('data-ip-cost') || '150', 10);
+      if (pillIp) pillIp.textContent = `${currentIpType} IP`;
+      updateConfig();
+    });
+  });
+
   function calculatePrice(cpu, ram, disk) {
-    // Formula: vCPU: ₹220, RAM: ₹150/GB, NVMe: ₹2/GB (Minimum base ₹399)
-    const base = (cpu * 220) + (ram * 150) + (disk * 2);
-    return Math.max(399, Math.round(base));
+    // Formula: vCPU: ₹90.00/core, RAM: ₹75.00/GB, NVMe: ₹5.00/GB
+    return (cpu * 90) + (ram * 75) + (disk * 5);
   }
 
   function updateConfig() {
@@ -113,14 +126,12 @@ function initConfigurator() {
     if (pillCpu) pillCpu.textContent = `${cpu} vCPU`;
     if (pillRam) pillRam.textContent = `${ram} GB RAM`;
     if (pillDisk) pillDisk.textContent = `${disk} GB NVMe`;
+    if (pillIp) pillIp.textContent = `${currentIpType} IP`;
 
     const monthly = calculatePrice(cpu, ram, disk);
-    const hourly = (monthly / 720).toFixed(2);
 
     if (priceMo) priceMo.textContent = `₹${monthly.toLocaleString('en-IN')}`;
-    if (priceHr) priceHr.textContent = `₹${hourly}/hr`;
     if (priceMoMobile) priceMoMobile.textContent = `₹${monthly.toLocaleString('en-IN')}`;
-    if (priceHrMobile) priceHrMobile.textContent = `(₹${hourly}/hr)`;
 
     const query = new URLSearchParams({
       service: 'Virtual Machine Service',
@@ -128,7 +139,8 @@ function initConfigurator() {
       ram: `${ram} GB`,
       disk: `${disk} GB NVMe`,
       os: currentOs,
-      price: `₹${monthly}/mo`
+      ip: `${currentIpType} IP (₹${currentIpCost}/mo)`,
+      price: `₹${monthly.toLocaleString('en-IN')}/mo`
     });
 
     if (deployBtn) deployBtn.href = `contact.html?${query.toString()}`;
